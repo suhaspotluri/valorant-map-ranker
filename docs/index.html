@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valorant Map Ranker</title>
+    <meta
+      name="description"
+      content="Rank Valorant maps by dragging cards and share your order with a link."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Valorant Map Ranker</p>
+        <h1>Drag maps into your perfect order.</h1>
+        <p class="subtitle">
+          Reorder the cards, save your list automatically, and copy a shareable
+          link when you are done.
+        </p>
+      </section>
+
+      <section class="panel" aria-labelledby="ranking-title">
+        <div class="panel-header">
+          <div>
+            <h2 id="ranking-title">Your ranking</h2>
+            <p class="panel-copy">
+              Drag with the handle on desktop, or use the move buttons on any
+              device.
+            </p>
+          </div>
+          <div class="actions">
+            <button type="button" id="copy-link">Copy share link</button>
+            <button type="button" id="reset-order" class="secondary">
+              Reset order
+            </button>
+          </div>
+        </div>
+
+        <p id="status-message" class="status-message" aria-live="polite"></p>
+        <ol id="ranking-list" class="ranking-list"></ol>
+      </section>
+    </main>
+
+    <template id="map-card-template">
+      <li class="map-card" draggable="true">
+        <div class="map-position" aria-hidden="true"></div>
+        <img class="map-thumb" alt="" />
+        <div class="map-content">
+          <div class="map-name-row">
+            <span class="map-name"></span>
+            <button
+              type="button"
+              class="drag-handle"
+              aria-label="Drag to reorder"
+              title="Drag to reorder"
+            >
+              ↕
+            </button>
+          </div>
+          <p class="map-meta">Share updates instantly through the page URL.</p>
+        </div>
+        <div class="move-controls">
+          <button type="button" class="move-button" data-direction="up">
+            Move up
+          </button>
+          <button type="button" class="move-button" data-direction="down">
+            Move down
+          </button>
+        </div>
+      </li>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
